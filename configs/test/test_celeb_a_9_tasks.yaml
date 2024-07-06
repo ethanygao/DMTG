@@ -1,0 +1,21 @@
+env:
+  gpus: [0]
+
+dataset:
+  type: test
+  name: celeb_a
+  tasks_name: [5_o_Clock_Shadow, Black_Hair, Blond_Hair, Brown_Hair, Goatee, Mustache, No_Beard, Rosy_Cheeks, Wearing_Hat]
+  args:
+    split: 'test'
+    data_dir: /remote-home/share/datasets/celeb_a
+eval:
+  ref_info: Res/learn_to_group_1/CelebA_reference_acc.json
+run:
+  mode: test
+  batch_size: 256
+  seed: 22
+  res_dir: Res/celeb_a
+  exp_name: junk
+  load_ckpt_dir: Res/learn_to_group/celeb_a_100_epoches_2_groups_9_tasks/checkpoint.pth
+  is_classify: True
+  finetune: True

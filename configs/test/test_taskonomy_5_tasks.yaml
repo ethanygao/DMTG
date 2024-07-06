@@ -1,0 +1,21 @@
+env:
+  gpus: [0]
+
+dataset:
+  type: test
+  name: ffaster_taskonomy
+  tasks_name: &task [depth_zbuffer, normal, segment_semantic, keypoints2d, edge_texture]
+  args:
+    split: 'test'
+    data_dir: DATA/larger_pkl_dataset
+    label_set: *task
+    model_whitelist: datasets/tiny_test_models.txt
+    augment: False
+run:
+  mode: test
+  batch_size: 24
+  seed: 22
+  res_dir: Res/taskonomy
+  exp_name: junk
+  load_ckpt_dir: Res/learn_to_group/taskonomy_50_epoches_3_groups_5_tasks/checkpoint.pth
+  finetune: True

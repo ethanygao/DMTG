@@ -1,0 +1,33 @@
+train_dataset:
+  name: celeb_a
+  args:
+    split: train
+    data_dir: /remote-home/share/datasets/celeb_a/
+  batch_size: 256
+
+val_dataset:
+  name: celeb_a
+  args:
+    split: validation
+    data_dir: /remote-home/share/datasets/celeb_a/
+  batch_size: 256
+
+optimizer:
+  name: adam
+  args:
+    lr: 1.e-3
+
+run:
+  res_dir: Res/celeb_a
+  exp_name: junk
+  epoch_max: 100
+  epoch_val: 1
+  epoch_save: 10
+  tasks: [5_o_Clock_Shadow, Black_Hair, Blond_Hair, Brown_Hair, Goatee, Mustache, No_Beard, Rosy_Cheeks, Wearing_Hat]
+  tau: 2.5
+
+scheduler:
+  name: multi_step_lr
+  args:
+    milestones: [ 15, 30, 45, 60, 75, 90 ]
+    gamma: 0.5

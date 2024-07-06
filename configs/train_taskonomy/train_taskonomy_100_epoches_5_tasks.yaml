@@ -1,0 +1,59 @@
+_BASE_: base_taskonomy_100_epoches_5_tasks.yaml
+train_dataset:
+  name: ffaster_taskonomy
+  args:
+    data_dir: /remote-home/share/datasets/taskonomy_dataset/larger_pkl_dataset/
+    model_whitelist: datasets/tiny_train_models.txt
+    augment: True
+  batch_size: 24
+
+val_dataset:
+  name: ffaster_taskonomy
+  args:
+    data_dir: /remote-home/share/datasets/taskonomy_dataset/larger_pkl_dataset/
+    model_whitelist: datasets/tiny_val_models.txt
+  batch_size: 24
+
+meta_arch:
+  name: learnToGroup
+  args:
+    k_groups: 1
+    sample: softmax
+    regularize_grad: trevor_rep_function
+    backbone:
+      name: xception_encoder
+      args:
+        param_set_num: 1
+        first_k_layers: 6
+    group_bone:
+      name: xception_group_encoder
+      args:
+        param_set_num: 1
+        behind_first_k_layers: 6
+    decoders:
+      name: taskonomy_decoder
+      args:
+        channels_per_task: [1, 3, 18, 1, 1]
+
+loss:
+  name: naive
+  args:
+    rotate: True
+
+scheduler:
+  name: reduce_on_plateau
+  args:
+    mode: min
+    min_lr: 3.e-5
+
+optimizer:
+  name: sgd
+  args:
+    lr: 1.e-1
+    momentum: 9.e-1
+    weight_decay: 1.e-4
+
+run:
+  epoch_max: 100
+  epoch_val: 10
+  epoch_save: 10

@@ -1,0 +1,25 @@
+train_dataset:
+  name: ffaster_taskonomy
+  args:
+    data_dir: /remote-home/share/datasets/taskonomy_dataset/larger_pkl_dataset/
+    model_whitelist: datasets/tiny_train_models.txt
+    augment: True
+    output_size: [256, 256]
+  batch_size: 24
+
+val_dataset:
+  name: ffaster_taskonomy
+  args:
+    data_dir: /remote-home/share/datasets/taskonomy_dataset/larger_pkl_dataset/
+    model_whitelist: datasets/tiny_val_models.txt
+    output_size: [256, 256]
+  batch_size: 24
+
+run:
+  res_dir: Res/taskonomy
+  exp_name: junk
+  epoch_max: 100
+  epoch_val: 2
+  epoch_save: 10
+  tasks: &task [depth_zbuffer, normal, segment_semantic, keypoints2d, edge_texture]
+  tau: 4

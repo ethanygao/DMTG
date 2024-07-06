@@ -1,0 +1,26 @@
+_BASE_: base_celeb_a_100_epoches_9_tasks.yaml
+meta_arch:
+  name: learnToGroup
+  args:
+    k_groups: 2
+    sample: gumbel
+    backbone:
+      name: resnet_base
+    group_bone:
+      name: resnet_group
+    decoders:
+      name: celeb_a_decoder_no_drop
+      args:
+        in_channel: 14400
+        channels_per_task: [ 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
+
+loss:
+  name: naive
+  args:
+    is_entropy: False
+    entropy_weight: 1.2e-0
+
+optimizer:
+  name: adam
+  args:
+    lr: 8.e-4

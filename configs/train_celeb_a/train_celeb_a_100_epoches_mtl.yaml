@@ -1,0 +1,18 @@
+_BASE_: base_celeb_a_100_epoches_9_tasks.yaml
+meta_arch:
+  name: learnToGroup
+  args:
+    k_groups: 1
+    group_bone:
+      name: simple_resnet
+    decoders:
+      name: celeb_a_decoder_no_drop
+      args:
+        in_channel: !!python/object/apply:eval [ "64*15*15" ]
+        channels_per_task: [ 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
+
+optimizer:
+  name: sgd
+  args:
+    lr: 5.e-4
+    momentum: 0.9
