@@ -1,12 +1,12 @@
 # DMTG: One-Shot Differentiable Multi-Task Grouping
-Official PyTorch Implementation of [DMTG](https://arxiv.org/abs/xxxx.xxxx). The codes are primarily contributed by [Shuguo Jiang](https://github.com/ShuGuoJ/), [Moran Li](https://github.com/moranli-aca), and [Yuan Gao](https://github.com/ethanygao).
+Official PyTorch Implementation of [DMTG](https://arxiv.org/abs/2407.05082). The codes are primarily contributed by [Shuguo Jiang](https://github.com/ShuGuoJ/), [Moran Li](https://github.com/moranli-aca), and [Yuan Gao](https://github.com/ethanygao).
 
 Please refer to our paper for more technical details:
-> Yuan Gao, Shuguo Jiang, Moran Li, Jin-Gang Yu, Gui-Song Xia. DMTG: One-Shot Differentiable Multi-Task Grouping, International Conference on Machine Learning (ICML), 2024. [[arXiv]](https://arxiv.org/abs/xxxx.xxxx)
+> Yuan Gao, Shuguo Jiang, Moran Li, Jin-Gang Yu, Gui-Song Xia. DMTG: One-Shot Differentiable Multi-Task Grouping, International Conference on Machine Learning (ICML), 2024. [[arXiv]](https://arxiv.org/abs/2407.05082)
 
 ![overview](figures/overview.png)
 
-If this code is helpful to your research, please consider citing [our paper](https://arxiv.org/abs/xxxx.xxxx) by:
+If this code is helpful to your research, please consider citing [our paper](https://arxiv.org/abs/2407.05082) by:
 
 ```
 @inproceedings{dmtg2024,
