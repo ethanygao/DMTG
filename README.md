@@ -34,7 +34,7 @@ Download Taskonomy from [this website](http://taskonomy.stanford.edu/) (you may 
 python preprocess/preprocess_taskonomy.py --root {root_path} --nthreads {n_threads} --whitelist {whitelist_path}
 ```
 
-Our trained checkpoints can be downloaded [here](https://pan.baidu.com/s/1w33DwNCI2mI9aPE4963oUA) with code `h9wd`.
+Our trained checkpoints can be downloaded [here](https://1drv.ms/u/c/7a98ceef6d290667/EXiN-SXGYOhIrRoJ3vJEbMEBBr7GkwaOGf2IrBGUT1I7HA?e=GtGVn2).
 
 ## Testing
 CelebA:
